@@ -4,11 +4,13 @@ import {
 	ERROR,
 	LOADING_STATUS_IS_SET,
 	TOGGLE_FAVORITE_STATUS,
+	STATIC_DATA_STATUS,
 } from './actionTypes';
 import produce from 'immer';
 
 const initialState = {
 	isLoading: false,
+	isStaticData: false,
 	baseCurrencyCode: 'USD',
 	secondCurrencyCode: 'UAH',
 	list: [],
@@ -36,6 +38,10 @@ function reducer(state = initialState, action) {
 					(currency) => currency.code === payload
 				);
 				currency.isFavorite = !currency.isFavorite;
+			});
+		case STATIC_DATA_STATUS:
+			return produce(state, (stateCopy) => {
+				stateCopy.isStaticData = payload;
 			});
 		case ERROR:
 		default:

@@ -15,6 +15,7 @@ export function useSecondCurrency(currencies) {
 			currencies.list.find(
 				(currency) => currency.code === currencies.secondCurrencyCode
 			),
+
 		[currencies]
 	);
 }

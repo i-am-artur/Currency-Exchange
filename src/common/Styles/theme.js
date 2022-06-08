@@ -22,6 +22,7 @@ export const radius = {
 
 export const fontSize = {
 	general: pxToRem(22),
+	warning: pxToRem(16),
 };
 
 export const width = {

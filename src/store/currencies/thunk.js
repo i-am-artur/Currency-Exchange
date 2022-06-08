@@ -1,13 +1,27 @@
-import { setCurrencies, setLoadingStatus } from './actionCreators';
+import {
+	setCurrencies,
+	setLoadingStatus,
+	toggleStaticStatus,
+} from './actionCreators';
 import { fetchCurrenciesData } from '../../services';
 
 export function getCurrenciesData(baseCurrency) {
 	return async (dispatch, getState) => {
 		dispatch(setLoadingStatus(true));
+		dispatch(toggleStaticStatus(false));
+
 		const currentCurrencies = getState().currencies.list;
 
-		const fetchedCurrencyData = await fetchCurrenciesData(baseCurrency);
-		// const fetchedCurrencyData = require('../../currencies');
+		let fetchedCurrencyData = null;
+		try {
+			fetchedCurrencyData = await fetchCurrenciesData(baseCurrency);
+			if (fetchedCurrencyData.message) {
+				dispatch(toggleStaticStatus(true));
+				fetchedCurrencyData = require('../../currencies');
+			}
+		} catch (e) {
+			console.log(e);
+		}
 
 		const fetchedCurrencies = Object.values(fetchedCurrencyData.data);
 		const currencies = formatCurrencies(fetchedCurrencies, currentCurrencies);

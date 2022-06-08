@@ -27,6 +27,7 @@ export default function Converter() {
 	};
 
 	return (
+		// secondCurrency && (
 		<Wrapper>
 			<Select
 				label='From:'
@@ -51,5 +52,6 @@ export default function Converter() {
 				Result: {round(amountToConvert * secondCurrency.value, 2)} UAH
 			</Result>
 		</Wrapper>
+		// )
 	);
 }

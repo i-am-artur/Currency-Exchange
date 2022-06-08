@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { width, gap } from './common/Styles/theme';
+import { width, gap, fontSize } from './common/Styles/theme';
 
 export const Main = styled.main`
 	display: flex;
@@ -8,4 +8,10 @@ export const Main = styled.main`
 	padding: ${gap.general};
 	margin: auto;
 	flex: 1;
+`;
+
+export const Warning = styled.div`
+	padding: ${gap.original} 0;
+	font-size: ${fontSize.warning};
+	color: red;
 `;

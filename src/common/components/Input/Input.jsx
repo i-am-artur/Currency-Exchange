@@ -11,11 +11,9 @@ export default function Input({
 	onChange,
 	enterPressed,
 	checked,
-	datalist,
 }) {
 	const inputId = removeSpaces(label);
 	const [currentValue, setCurrentValue] = useState(value);
-	const listId = datalist && random(0, 10000);
 
 	const valueChanged = (e) => {
 		const typedValue = e.target.value;
@@ -37,15 +35,7 @@ export default function Input({
 				defaultChecked={checked}
 				onChange={valueChanged}
 				onKeyDown={(e) => e.key === 'Enter' && enterPressed && enterPressed()}
-				list={listId}
 			/>
-			{datalist && (
-				<datalist id={listId}>
-					{datalist.map((listItem) => (
-						<option value={listItem} key={listItem} />
-					))}
-				</datalist>
-			)}
 		</Wrapper>
 	);
 }

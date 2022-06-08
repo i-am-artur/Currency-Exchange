@@ -3,6 +3,7 @@ import {
 	SECOND_CURRENCY_IS_SET,
 	TOGGLE_FAVORITE_STATUS,
 	LOADING_STATUS_IS_SET,
+	STATIC_DATA_STATUS,
 } from './actionTypes';
 
 export function setCurrencies(currenciesData) {
@@ -27,5 +28,11 @@ export function toggleCurrencyFavoriteStatus(currencyCode) {
 	return {
 		type: TOGGLE_FAVORITE_STATUS,
 		payload: currencyCode,
+	};
+}
+export function toggleStaticStatus(staticStatus) {
+	return {
+		type: STATIC_DATA_STATUS,
+		payload: staticStatus,
 	};
 }
