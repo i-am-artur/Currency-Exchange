@@ -1,5 +1,5 @@
 import { Source, Wrapper } from './input.styled';
-import { random, removeSpaces } from '../../../helpers/mixins';
+import { removeSpaces } from '../../../helpers/mixins';
 import * as PropTypes from 'prop-types';
 import { useState } from 'react';
 
