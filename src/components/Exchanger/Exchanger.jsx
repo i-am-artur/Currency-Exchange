@@ -19,9 +19,9 @@ export default function Exchanger() {
 	const [currenciesFilterCondition, setCurrenciesFilterCondition] =
 		useState('');
 
-	const toggleCurrencyFavorite = (currencyCode) => {
+	function toggleCurrencyFavorite(currencyCode) {
 		dispatch(toggleCurrencyFavoriteStatus(currencyCode));
-	};
+	}
 
 	const currenciesToDisplay = useMemo(() => {
 		const condition = currenciesFilterCondition.toUpperCase();

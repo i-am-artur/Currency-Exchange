@@ -15,13 +15,13 @@ export default function Input({
 	const inputId = removeSpaces(label);
 	const [currentValue, setCurrentValue] = useState(value);
 
-	const valueChanged = (e) => {
+	function valueChanged(e) {
 		const typedValue = e.target.value;
 		if (onChange) {
 			onChange(typedValue);
 		}
 		setCurrentValue(typedValue);
-	};
+	}
 
 	return (
 		<Wrapper>

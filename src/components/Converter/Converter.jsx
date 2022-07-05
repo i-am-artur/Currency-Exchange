@@ -21,13 +21,12 @@ export default function Converter() {
 	const filteredListFromBaseCurrency =
 		useFilteredListFromBaseCurrency(currencies);
 
-	const secondCurrencyChanged = (event) => {
+	function secondCurrencyChanged(event) {
 		const target = event.target;
 		dispatch(setSecondCurrency(target.value));
-	};
+	}
 
 	return (
-		// secondCurrency && (
 		<Wrapper>
 			<Select
 				label='From:'
@@ -52,6 +51,5 @@ export default function Converter() {
 				Result: {round(amountToConvert * secondCurrency.value, 2)} UAH
 			</Result>
 		</Wrapper>
-		// )
 	);
 }
